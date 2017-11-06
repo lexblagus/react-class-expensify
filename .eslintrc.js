@@ -10,10 +10,8 @@ module.exports = {
 	},
 	"rules":{
 		"strict": 0,
-		"no-console": [
-			"warn",
-			{ allow: ["nada"] }
-		]
+		"no-console": [0],
+		"no-unused-vars": [1]
 	},
 	"env": {
 		"browser": true,

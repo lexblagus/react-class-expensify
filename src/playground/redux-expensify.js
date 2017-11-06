@@ -5,6 +5,7 @@ import uuid from 'uuid';
 
 
 
+
 const addExpense = ({
 	description = '',
 	note = '',
@@ -43,6 +44,20 @@ const setTextFilter = (
 ) => ({
 	type: 'SET_TEXT_FILTER',
 	lookFor
+});
+const sortByDate = () => ({
+	type: 'SORT_BY_DATE'
+});
+const sortByAmount = () => ({
+	type: 'SORT_BY_AMOUNT'
+});
+const setStartDate = (startDate) => ({
+	type: 'SET_START_DATE',
+	startDate
+});
+const setEndDate = (endDate) => ({
+	type: 'SET_END_DATE',
+	endDate
 });
 
 
@@ -93,10 +108,49 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
 				...state,
 				text: action.lookFor
 			};
+		case 'SORT_BY_AMOUNT':
+			return {
+				...state,
+				sortBy: 'amount'
+			};
+		case 'SORT_BY_DATE':
+			return {
+				...state,
+				sortBy: 'date'
+			};
+		case 'SET_START_DATE':
+			return {
+				...state,
+				startDate: action.startDate
+			};
+		case 'SET_END_DATE':
+			return {
+				...state,
+				endDate: action.endDate
+			};
 	}
 };
 
 
+
+
+
+const getVisibleExpenses = (expenses, {
+	text, sortBy, startDate, endDate
+}) => {
+	return expenses.filter((expense) => {
+		const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
+		const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+		const textMatch = typeof text !== 'string' || expense.description.toLowerCase().includes(text.toLowerCase());
+		return startDateMatch && endDateMatch && textMatch
+	}).sort((a,b) => {
+		if(sortBy === 'date'){
+			return a.createdAt < b.createdAt ? 1 : -1;
+		} else if(sortBy === 'amount'){
+			return a.amount < b.amount ? 1 : -1;
+		}
+	});
+};
 
 
 const store = createStore(
@@ -109,49 +163,39 @@ console.log('initial store.getState() = ',  JSON.stringify(store.getState(), nul
 
 store.subscribe(() => {
 	console.log('store.subscribe');
-	//console.log('subscribed store.getState() = ', JSON.stringify(store.getState(), null, '	'));
+	const state = store.getState();
+	const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+	console.log(JSON.stringify(visibleExpenses, null, '	'));
 });
 
 
 
 
-store.dispatch(  addExpense({ description: 'begin', note:'BOF', amount: 1 })  );
-console.log('after addExpense', JSON.stringify(store.getState(), null, '	'));
-
-const expenseOne = store.dispatch(
-	addExpense({ description: 'rent', note:'YES', amount: 100 })
-);
-console.log('after addExpense', JSON.stringify(store.getState(), null, '	'));
-console.log('expenseOne.expense.id = ', expenseOne.expense.id);
-
-const expenseTwo = store.dispatch(
-	addExpense({ description: 'cofee', note:'NO', amount: 200 })
-);
-console.log('after addExpense', JSON.stringify(store.getState(), null, '	'));
-console.log('expenseTwo.expense.id = ', expenseTwo.expense.id);
-
-store.dispatch(  addExpense({ description: 'end', note:'EOF', amount: 10 })  );
-console.log('after addExpense', JSON.stringify(store.getState(), null, '	'));
+//store.dispatch(addExpense({ description: 'begin', note:'BOF', amount: 1 }));
+const expenseOne = store.dispatch(  addExpense({ description: 'rent', note:'YES', amount: 100, createdAt: 1000 })  );
+const expenseTwo = store.dispatch(  addExpense({ description: 'cofee', note:'NO', amount: 300, createdAt: -1000 })  );
+const expenseThree = store.dispatch(  addExpense({ description: 'A', amount: 10, createdAt: -1 })  );
+const expenseFour = store.dispatch(  addExpense({ description: 'B', amount: 20, createdAt: 1 })  );
+//store.dispatch(  addExpense({ description: 'end', note:'EOF', amount: 10 })  );
 
 
-/*const expenseThree =*/ store.dispatch(
-	removeExpense({ id: expenseOne.expense.id })
-);
-console.log('after removeExpense', JSON.stringify(store.getState(), null, '	'));
+//store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 
-/*const expenseTwoEdit =*/ store.dispatch(
-	editExpense( expenseTwo.expense.id, { amount: 500 } )
-);
-console.log('after editExpense', JSON.stringify(store.getState(), null, '	'));
+//store.dispatch(  editExpense( expenseTwo.expense.id, { amount: 500 } )  );
 
 
+//store.dispatch(setTextFilter('EN'));
+//store.dispatch(setTextFilter('rent'));
+//store.dispatch(setTextFilter());
+//store.dispatch(sortByAmount());
+//store.dispatch(sortByDate());
+store.dispatch(sortByAmount());
 
-
-store.dispatch(setTextFilter('rent'));
-console.log('after setTextFilter (1)', JSON.stringify(store.getState(), null, '	'));
-store.dispatch(setTextFilter());
-console.log('after setTextFilter (2)', JSON.stringify(store.getState(), null, '	'));
-
+//store.dispatch(setStartDate(1000));
+//store.dispatch(setStartDate(125));
+//store.dispatch(setStartDate());
+//store.dispatch(setEndDate(1000));
+//store.dispatch(setEndDate());
 
 
 /*
