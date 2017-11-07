@@ -1,6 +1,9 @@
 module.exports = {
 	"parser": "babel-eslint", // requres "npm install babel-eslint --save-dev"
-	"extends": "eslint:recommended",
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module",
@@ -9,9 +12,9 @@ module.exports = {
 		}
 	},
 	"rules":{
-		"strict": 0,
-		"no-console": [0],
-		"no-unused-vars": [1]
+		"no-console": 0,
+		"react/prop-types": 0,
+		"react/display-name": 0
 	},
 	"env": {
 		"browser": true,

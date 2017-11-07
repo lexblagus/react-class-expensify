@@ -22,12 +22,16 @@
     "babel-preset-react": "6.24.1",
     "console": "^0.5.2",
     "css-loader": "0.28.4",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "live-server": "^1.2.0",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-modal": "2.2.2",
+    "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "sass-loader": "6.0.6",
@@ -35,10 +39,7 @@
     "uuid": "^3.1.0",
     "validator": "8.0.0",
     "webpack": "3.1.0",
-    "webpack-dev-server": "2.5.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2"
+    "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
