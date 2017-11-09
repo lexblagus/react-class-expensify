@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import AppRouter from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
-import {addExpense} from './actions/expenses';
+import {addExpense, removeExpense} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 //import storeSelector from './selectors/expenses';
 
@@ -14,15 +14,18 @@ import './styles/styles.scss';
 
 const store = configureStore();
 store.subscribe(() => {
-	console.info('store.subscribe');
-	console.log(JSON.stringify(store.getState(), null, '	'));
+	//console.info('store.subscribe');
+	//console.log(JSON.stringify(store.getState(), null, '	'));
 });
 
 
+let itvl = 250;
+let tmot = 1000;
+
 setTimeout(
 	() => {
-		console.log('timeout');
-		store.dispatch(
+		console.log('addExpense');
+		window.expenseOne = store.dispatch(
 			addExpense({
 				description: 'water bill',
 				amount: 100,
@@ -30,48 +33,63 @@ setTimeout(
 			})
 		);
 	},
-	1000
+	tmot+=itvl
 );
 
 
 setTimeout(
 	() => {
-		console.log('timeout');
-		store.dispatch(
+		console.log('addExpense');
+		window.expenseTwo = store.dispatch(
 			addExpense({
 				description: 'gas bill'
 			})
 		);
 	},
-	2000
+	tmot+=itvl
 );
 
 
 setTimeout(
 	() => {
-		console.log('timeout');
+		console.log('setTextFilter');
 		store.dispatch( setTextFilter('water') );
 	},
-	3000
+	tmot+=itvl
 );
 
 
 setTimeout(
 	() => {
-		console.log('timeout');
+		console.log('setTextFilter');
 		store.dispatch( setTextFilter('gas') );
 	},
-	4000
+	tmot+=itvl
 );
 
 
 setTimeout(
 	() => {
-		console.log('timeout');
+		console.log('setTextFilter');
 		store.dispatch( setTextFilter() );
 	},
-	5000
+	tmot+=itvl
 );
+
+
+/*
+setTimeout(
+	() => {
+		console.log('removeExpense');
+		store.dispatch(
+			removeExpense({
+				id: window.expenseOne.expense.id
+			})
+		);
+	},
+	tmot+=itvl
+);
+*/
 
 
 /*

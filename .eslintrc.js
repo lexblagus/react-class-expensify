@@ -14,8 +14,7 @@ module.exports = {
 	"rules":{
 		"no-console": 0,
 		"react/prop-types": 0,
-		"react/display-name": 0,
-		"no-unused-vars": 1
+		"react/display-name": 0
 	},
 	"env": {
 		"browser": true,
