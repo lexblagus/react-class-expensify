@@ -19,16 +19,30 @@ store.subscribe(() => {
 });
 
 
-let itvl = 250;
-let tmot = 1000;
+let itvl = 2500;
+let tmot = 500;
 
 setTimeout(
 	() => {
 		console.log('addExpense');
 		window.expenseOne = store.dispatch(
 			addExpense({
-				description: 'water bill',
-				amount: 100,
+				description: '1 water bill',
+				amount: 10000
+			})
+		);
+	},
+	tmot+=itvl
+);
+
+
+setTimeout(
+	() => {
+		console.log('addExpense');
+		window.expenseTwo = store.dispatch(
+			addExpense({
+				description: '2 gas bill',
+				amount: 109500,
 				createdAt: 1000
 			})
 		);
@@ -42,7 +56,8 @@ setTimeout(
 		console.log('addExpense');
 		window.expenseTwo = store.dispatch(
 			addExpense({
-				description: 'gas bill'
+				description: '3 rent',
+				createdAt: -2000
 			})
 		);
 	},
@@ -50,6 +65,7 @@ setTimeout(
 );
 
 
+/*
 setTimeout(
 	() => {
 		console.log('setTextFilter');
@@ -77,7 +93,6 @@ setTimeout(
 );
 
 
-/*
 setTimeout(
 	() => {
 		console.log('removeExpense');
@@ -89,10 +104,8 @@ setTimeout(
 	},
 	tmot+=itvl
 );
-*/
 
 
-/*
 (()=>{ // visible expenses
 	store.dispatch( setTextFilter('gas') );
 
@@ -100,6 +113,8 @@ setTimeout(
 	const visibleExpenses = storeSelector(state.expenses, state.filters);
 	console.log(JSON.stringify(visibleExpenses, null, '	'));
 })()
+
+
 */
 
 
