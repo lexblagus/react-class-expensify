@@ -12,8 +12,8 @@ module.exports = {
   },
   module: {
     rules: [{
-      loader: 'babel-loader',
       test: /\.js$/,
+      loader: 'babel-loader',
       exclude: /node_modules/
     }, {
       test: /\.s?css$/,

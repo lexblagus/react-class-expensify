@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+//import 'normalize.css';
+import 'milligram';
+
 import AppRouter from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
 import {addExpense, removeExpense} from './actions/expenses';
@@ -19,7 +22,7 @@ store.subscribe(() => {
 });
 
 
-let itvl = 2500;
+let itvl = 500;
 let tmot = 500;
 
 setTimeout(
@@ -43,7 +46,7 @@ setTimeout(
 			addExpense({
 				description: '2 gas bill',
 				amount: 109500,
-				createdAt: 1000
+				createdAt: -1000
 			})
 		);
 	},
@@ -57,7 +60,7 @@ setTimeout(
 		window.expenseTwo = store.dispatch(
 			addExpense({
 				description: '3 rent',
-				createdAt: -2000
+				createdAt: 2000
 			})
 		);
 	},

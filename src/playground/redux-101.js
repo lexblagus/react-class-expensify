@@ -1,6 +1,8 @@
 import { createStore } from 'redux';
 
 
+
+
 const incrementCount = ({ incrementBy = 1 } = {}) => ({
 	type: 'INCREMENT',
 	incrementBy
@@ -19,6 +21,8 @@ const setCount = ({ count } = {}) => ({
 const resetCount = () => ({
 	type: 'RESET'
 });
+
+
 
 
 const countReducer = (
@@ -48,12 +52,18 @@ const countReducer = (
 	}
 };
 
+
+
 const store = createStore( countReducer );
+
+
 
 
 const unsubscribe = store.subscribe(() => {
 	console.log(store.getState());
 });
+
+
 
 
 store.dispatch(
