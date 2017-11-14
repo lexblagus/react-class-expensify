@@ -5,6 +5,7 @@ import { setTextFilter, sortByDate, sortByAmount } from '../actions/filters';
 
 const ExpenseListFilters = (props) => (
 	<div>
+		<br />
 		<input
 			type="text"
 			value={props.filters.text}
