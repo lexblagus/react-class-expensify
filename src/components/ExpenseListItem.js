@@ -4,16 +4,29 @@ import { removeExpense } from '../actions/expenses';
 
 
 const ExpenseListItem = ({dispatch, id, description, amount, createdAt}) => (
-	<div>
-		<h2>{description}</h2>
-		<button
+	<div className="">
+		<b>
+			<a
+				href={`/edit/${id}`}
+				className=""
+				aria-label="link"
+			>
+				{description}
+			</a>
+		</b>
+		&nbsp;
+		<i>{createdAt}</i>
+		&nbsp;
+		<b>{amount}</b>
+		&nbsp;
+		<a
+			href="javascript:;"
+			className="button is-small is-danger"
 			onClick = {() => {
 				dispatch(removeExpense({id}));
 			}}
-		>remove</button>
-		&nbsp;
-		amount = {amount},
-		createdAt = {createdAt}
+			aria-label="remove"
+		>DEL</a>
 	</div>
 );
 

@@ -1,0 +1,32 @@
+[ƒ] app.js
+----[<]Provider
+--------[<]AppRouter
+------------[ƒ] routers/AppRouter.js
+----------------[<]BrowserRouter
+--------------------[<]Header
+------------------------[ƒ] components/Header.js
+----------------------------[<]NavLink
+--------------------[<]Switch
+------------------------[<]Route
+----------------------------[<]Route = ExpenseDashboardPage
+--------------------------------[ƒ] components/ExpenseDashboardPage.js
+------------------------------------[<]ExpenseListFilters
+----------------------------------------[ƒ] components/ExpenseListFilters.js
+------------------------------------[<]ExpenseList
+----------------------------------------[ƒ] components/ExpenseList
+--------------------------------------------[<]ExpenseListItem
+------------------------------------------------[ƒ] components/ExpenseListItem.js
+----------------------------[<]Route = AddExpensePage
+--------------------------------[ƒ] components/AddExpensePage.js
+----------------------------------------[<]ExpenseForm
+--------------------------------------------[ƒ] components/ExpenseForm.js
+----------------------------[<]Route = EditExpensePage
+--------------------------------[ƒ] components/EditExpensePage.js
+----------------------------[<]Route = HelpPage
+--------------------------------[ƒ] components/HelpPage.js
+----------------------------[<]Route = NotFoundPage
+--------------------------------[ƒ] components/NotFoundPage.js
+------------------------------------[<]Link
+____________________
+[ƒ] Path to component file
+[<]React component

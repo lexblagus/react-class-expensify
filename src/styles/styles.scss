@@ -1,2 +1,42 @@
 @import './base/settings';
 @import './base/base';
+
+/*
+div{  }
+.container , .row , .column{
+}
+.container{
+	border: 1px solid hsla(225, 100%, 25%, 0.33);
+}
+.row{
+	border: 1px solid hsla(135, 100%, 33%, 0.25);
+}
+.column{
+	border: 1px solid hsla(0, 100%, 50%, 0.25);
+	background-color: hsla(0, 100%, 50%, 0.05);
+}
+*/
+
+// Bulma customizations
+
+.navbar-burger.burger{
+	color: #fff;
+	font-weight: 900;
+}
+
+.navbar-burger.burger.is-active{
+	color: yellow;
+}
+
+.navbar .navbar-item{
+	text-transform: uppercase;
+	font-weight: 100;
+}
+.navbar .navbar-item.is-active {
+	font-weight: 900;
+	background-color: hsla(0,0%,0%,1.00) !important;
+}
+
+.navbar-menu .navbar-item.is-active{
+	background-color: hsla(0,0%,0%,0.15) !important;
+}

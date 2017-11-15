@@ -27,6 +27,7 @@ const ExpenseListFilters = (props) => (
 			<option value="amount">Amount</option>
 			<option value="date">Date</option>
 		</select>
+		<br /><br />
 	</div>
 );
 

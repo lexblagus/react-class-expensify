@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 //import 'normalize.css';
-import 'milligram';
+//import 'milligram';
+import 'bulma';
+//import 'blueprint-css/dist/blueprint.min.css';
 
 import AppRouter from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
@@ -22,7 +24,7 @@ store.subscribe(() => {
 });
 
 
-let itvl = 500;
+let itvl = 250;
 let tmot = 500;
 
 setTimeout(
@@ -68,56 +70,54 @@ setTimeout(
 );
 
 
+if(0){
+	setTimeout(
+		() => {
+			console.log('setTextFilter');
+			store.dispatch( setTextFilter('water') );
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('setTextFilter');
+			store.dispatch( setTextFilter('gas') );
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('setTextFilter');
+			store.dispatch( setTextFilter() );
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('removeExpense');
+			store.dispatch(
+				removeExpense({
+					id: window.expenseOne.expense.id
+				})
+			);
+		},
+		tmot+=itvl
+	);
+}
 /*
-setTimeout(
-	() => {
-		console.log('setTextFilter');
-		store.dispatch( setTextFilter('water') );
-	},
-	tmot+=itvl
-);
-
-
-setTimeout(
-	() => {
-		console.log('setTextFilter');
+	(()=>{ // visible expenses
 		store.dispatch( setTextFilter('gas') );
-	},
-	tmot+=itvl
-);
 
-
-setTimeout(
-	() => {
-		console.log('setTextFilter');
-		store.dispatch( setTextFilter() );
-	},
-	tmot+=itvl
-);
-
-
-setTimeout(
-	() => {
-		console.log('removeExpense');
-		store.dispatch(
-			removeExpense({
-				id: window.expenseOne.expense.id
-			})
-		);
-	},
-	tmot+=itvl
-);
-
-
-(()=>{ // visible expenses
-	store.dispatch( setTextFilter('gas') );
-
-	const state = store.getState();
-	const visibleExpenses = storeSelector(state.expenses, state.filters);
-	console.log(JSON.stringify(visibleExpenses, null, '	'));
-})()
-
-
+		const state = store.getState();
+		const visibleExpenses = storeSelector(state.expenses, state.filters);
+		console.log(JSON.stringify(visibleExpenses, null, '	'));
+	})()
 */
 
 
