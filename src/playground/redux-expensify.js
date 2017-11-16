@@ -8,7 +8,7 @@ import uuid from 'uuid';
 
 const addExpense = ({
 	description = '',
-	note = '',
+	notes = '',
 	amount = 0,
 	createdAt = 0
 } = {}) => ({
@@ -16,7 +16,7 @@ const addExpense = ({
 	expense: {
 		id: uuid(),
 		description,
-		note,
+		notes,
 		amount,
 		createdAt
 	}
@@ -171,12 +171,12 @@ store.subscribe(() => {
 
 
 
-//store.dispatch(addExpense({ description: 'begin', note:'BOF', amount: 1 }));
-const expenseOne = store.dispatch(  addExpense({ description: 'rent', note:'YES', amount: 100, createdAt: 1000 })  );
-const expenseTwo = store.dispatch(  addExpense({ description: 'cofee', note:'NO', amount: 300, createdAt: -1000 })  );
+//store.dispatch(addExpense({ description: 'begin', notes:'BOF', amount: 1 }));
+const expenseOne = store.dispatch(  addExpense({ description: 'rent', notes:'YES', amount: 100, createdAt: 1000 })  );
+const expenseTwo = store.dispatch(  addExpense({ description: 'cofee', notes:'NO', amount: 300, createdAt: -1000 })  );
 const expenseThree = store.dispatch(  addExpense({ description: 'A', amount: 10, createdAt: -1 })  );
 const expenseFour = store.dispatch(  addExpense({ description: 'B', amount: 20, createdAt: 1 })  );
-//store.dispatch(  addExpense({ description: 'end', note:'EOF', amount: 10 })  );
+//store.dispatch(  addExpense({ description: 'end', notes:'EOF', amount: 10 })  );
 
 
 //store.dispatch(removeExpense({ id: expenseOne.expense.id }));
@@ -203,7 +203,7 @@ const demoState = {
 	expenses: [{
 		id: '53mb53mb53',
 		description: 'This is desc',
-		note: 'this is a note',
+		notes: 'this is a note',
 		amount: 54500,
 		createdAt: 0
 	}],

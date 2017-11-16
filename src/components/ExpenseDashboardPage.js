@@ -7,7 +7,7 @@ const ExpenseDashboardPage = () => (
 	<div>
 		<section className="section">
 			<div className="container">
-				<h1 className="title is-1">View</h1>
+				<h2 className="title is-2">View</h2>
 				<div className="card">
 					<div className="card-content">
 						<ExpenseListFilters />

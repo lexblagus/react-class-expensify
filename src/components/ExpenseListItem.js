@@ -1,23 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeExpense } from '../actions/expenses';
 
 
-const ExpenseListItem = ({dispatch, id, description, amount, createdAt}) => (
+const ExpenseListItem = ({dispatch, id, description, notes, amount, createdAt}) => (
 	<div className="">
 		<b>
-			<a
-				href={`/edit/${id}`}
-				className=""
-				aria-label="link"
-			>
+			<Link to={`/edit/${id}`} >
 				{description}
-			</a>
+			</Link>
 		</b>
 		&nbsp;
-		<i>{createdAt}</i>
+		<i>
+			<Link to={`/edit/${id}`} >
+				{notes}
+			</Link>
+		</i>
 		&nbsp;
-		<b>{amount}</b>
+		m( {createdAt} )
+		&nbsp;
+		<b>$ {amount / 100}</b>
 		&nbsp;
 		<a
 			href="javascript:;"

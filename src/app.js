@@ -9,7 +9,7 @@ import 'bulma';
 
 import AppRouter from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
-import {addExpense, removeExpense} from './actions/expenses';
+import {addExpense, editExpense, removeExpense} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 //import storeSelector from './selectors/expenses';
 
@@ -26,49 +26,71 @@ store.subscribe(() => {
 
 let itvl = 250;
 let tmot = 500;
+if(1){
 
-setTimeout(
-	() => {
-		console.log('addExpense');
-		window.expenseOne = store.dispatch(
-			addExpense({
-				description: '1 water bill',
-				amount: 10000
-			})
-		);
-	},
-	tmot+=itvl
-);
-
-
-setTimeout(
-	() => {
-		console.log('addExpense');
-		window.expenseTwo = store.dispatch(
-			addExpense({
-				description: '2 gas bill',
-				amount: 109500,
-				createdAt: -1000
-			})
-		);
-	},
-	tmot+=itvl
-);
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			window.expenseOne = store.dispatch(
+				addExpense({
+					description: '1 water bill',
+					amount: 10000
+				})
+			);
+		},
+		tmot+=itvl
+	);
 
 
-setTimeout(
-	() => {
-		console.log('addExpense');
-		window.expenseTwo = store.dispatch(
-			addExpense({
-				description: '3 rent',
-				createdAt: 2000
-			})
-		);
-	},
-	tmot+=itvl
-);
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			window.expenseTwo = store.dispatch(
+				addExpense({
+					description: '2 gas bill',
+					notes: 'gas gas gas gas gas',
+					amount: 109500,
+					createdAt: -1000
+				})
+			);
+		},
+		tmot+=itvl
+	);
 
+
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			window.expenseTwo = store.dispatch(
+				addExpense({
+					description: '3 rent',
+					notes: 'rent rent rent rent ',
+					createdAt: 2000
+				})
+			);
+		},
+		tmot+=itvl
+	);
+}
+
+if(1){
+	setTimeout(
+		() => {
+			console.log('editExpense');
+			//console.log( window.expenseOne.expense.id );
+			window.expenseOneEdited = store.dispatch(
+				editExpense(
+					window.expenseOne.expense.id,
+					{
+						description: '4 edited water bill',
+						notes: 'waaaaaaater',
+					}
+				)
+			);
+		},
+		tmot+=itvl
+	);
+}
 
 if(0){
 	setTimeout(
@@ -110,6 +132,7 @@ if(0){
 		tmot+=itvl
 	);
 }
+
 /*
 	(()=>{ // visible expenses
 		store.dispatch( setTextFilter('gas') );

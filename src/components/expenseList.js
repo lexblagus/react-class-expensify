@@ -5,7 +5,7 @@ import selectExpenses from '../selectors/expenses';
 
 const ExpenseList = (props) => (
 	<div className="container">
-		<h2 className="title is-2">
+		<h3 className="title is-3">
 			List
 			<span className="title is-4">
 				{' '}
@@ -15,7 +15,7 @@ const ExpenseList = (props) => (
 				{' '}
 				item{props.expenses.length>1?'s':''}
 			</span>
-		</h2>
+		</h3>
 		{
 			props.expenses.map(
 				(expense) => (
