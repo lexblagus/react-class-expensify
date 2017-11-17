@@ -87,12 +87,11 @@ export default class ExpenseForm extends React.Component{
 						onChange={this.onDescChange}
 					/>
 					<br />
-					amount: 
-					<input
-						type="number"
-						placeholder="amount"
-						value={this.state.amount}
-						onChange={this.onAmountChange}
+					notes: 
+					<textarea
+						placeholder="notes"
+						value={this.state.notes}
+						onChange={this.onNotesChange}
 					/>
 					<br />
 					created at: 
@@ -105,11 +104,12 @@ export default class ExpenseForm extends React.Component{
 						isOutsideRange={()=>false}
 					/>
 					<br />
-					notes: 
-					<textarea
-						placeholder="notes"
-						value={this.state.notes}
-						onChange={this.onNotesChange}
+					amount: 
+					<input
+						type="number"
+						placeholder="amount"
+						value={this.state.amount}
+						onChange={this.onAmountChange}
 					/>
 					<br />
 					<button>Save</button>

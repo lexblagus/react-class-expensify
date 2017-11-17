@@ -26,7 +26,8 @@ store.subscribe(() => {
 
 let itvl = 250;
 let tmot = 500;
-if(1){
+
+if(1){ // add 3 expenses
 
 	setTimeout(
 		() => {
@@ -34,7 +35,8 @@ if(1){
 			window.expenseOne = store.dispatch(
 				addExpense({
 					description: '1 water bill',
-					amount: 10000
+					amount: 10000,
+					createdAt: 1509544800000
 				})
 			);
 		},
@@ -50,7 +52,7 @@ if(1){
 					description: '2 gas bill',
 					notes: 'gas gas gas gas gas',
 					amount: 109500,
-					createdAt: -1000
+					createdAt: 1510955754363
 				})
 			);
 		},
@@ -65,7 +67,7 @@ if(1){
 				addExpense({
 					description: '3 rent',
 					notes: 'rent rent rent rent ',
-					createdAt: 2000
+					createdAt: 1512050400000
 				})
 			);
 		},
@@ -73,7 +75,88 @@ if(1){
 	);
 }
 
-if(1){
+if(1){ // add 5 expenses
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			store.dispatch(
+				addExpense({
+					description: 'Description A',
+					notes: 'notes notes notes 1 ',
+					createdAt: 1510955754363,
+					amount: 100
+				})
+			);
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			store.dispatch(
+				addExpense({
+					description: 'Description B',
+					notes: 'notes notes notes 2',
+					createdAt: 1510955754363,
+					amount: 200
+				})
+			);
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			store.dispatch(
+				addExpense({
+					description: 'Description C',
+					notes: 'notes notes notes 3',
+					createdAt: 1510955754363,
+					amount: 300
+				})
+			);
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			store.dispatch(
+				addExpense({
+					description: 'Description D',
+					notes: 'notes notes notes 4',
+					createdAt: 1510955754363,
+					amount: 400
+				})
+			);
+		},
+		tmot+=itvl
+	);
+
+
+	setTimeout(
+		() => {
+			console.log('addExpense');
+			store.dispatch(
+				addExpense({
+					description: 'Description E',
+					notes: 'notes notes notes 5',
+					createdAt: 1510955754363,
+					amount: 500
+				})
+			);
+		},
+		tmot+=itvl
+	);
+}
+
+if(0){ // edit 4
 	setTimeout(
 		() => {
 			console.log('editExpense');
@@ -82,7 +165,7 @@ if(1){
 				editExpense(
 					window.expenseOne.expense.id,
 					{
-						description: '4 edited water bill',
+						description: '4 EDITED water bill',
 						notes: 'waaaaaaater',
 					}
 				)
@@ -92,7 +175,7 @@ if(1){
 	);
 }
 
-if(0){
+if(0){ // set 3 text filters
 	setTimeout(
 		() => {
 			console.log('setTextFilter');
@@ -132,16 +215,6 @@ if(0){
 		tmot+=itvl
 	);
 }
-
-/*
-	(()=>{ // visible expenses
-		store.dispatch( setTextFilter('gas') );
-
-		const state = store.getState();
-		const visibleExpenses = storeSelector(state.expenses, state.filters);
-		console.log(JSON.stringify(visibleExpenses, null, '	'));
-	})()
-*/
 
 
 const jsx = (

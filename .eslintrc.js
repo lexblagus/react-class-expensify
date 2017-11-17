@@ -12,9 +12,11 @@ module.exports = {
 		}
 	},
 	"rules":{
-		"no-console": 0,
-		"react/prop-types": 0,
-		"react/display-name": 0
+		"no-console": 1,
+		"react/prop-types": 1,
+		"react/display-name": 1,
+		"no-constant-condition": 1,
+		"no-unused-vars": 1
 	},
 	"env": {
 		"browser": true,
