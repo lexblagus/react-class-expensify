@@ -21,6 +21,8 @@ module.exports = {
 	"env": {
 		"browser": true,
 		"node": true,
-		"es6": true
-	}
+		"es6": true,
+		"jest/globals": true
+	},
+	"plugins": ["jest"]
 };
