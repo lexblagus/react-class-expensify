@@ -32,7 +32,6 @@ const Header = () => (
 			<div className="navbar-brand has-text-grey-light">
 				<NavLink className="navbar-item" activeClassName="is-active" to="/"         exact={true}>Todos</NavLink>
 				<NavLink className="navbar-item" activeClassName="is-active" to="/create"   >Create</NavLink>
-				<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Help</NavLink>
 				<div className="navbar-burger burger" data-target="navMainMenu">
 					<span></span>
 					<span></span>
@@ -43,6 +42,7 @@ const Header = () => (
 				<div className="navbar-start">
 					<NavLink className="navbar-item" activeClassName="is-active" to="/404"      >Not found</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/edit/___" >Edit a page</NavLink>
+					<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Help</NavLink>
 				</div>
 				{/*
 				<div className="navbar-end">

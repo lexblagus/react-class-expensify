@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./src/app.js",
     "test": "jest",
-    "test-watch": "npm test -- --watch",
+    "test-watch": "npm test -- --watchAll --verbose",
     "dev-server": "webpack-dev-server",
     "build": "webpack",
     "serve": "live-server public/"
@@ -45,6 +45,7 @@
     "react-modal": "2.2.2",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
+    "react-test-renderer": "^16.0.0",
     "react-to-html-webpack-plugin": "^2.2.0",
     "redux": "^3.7.2",
     "sass-loader": "6.0.6",
