@@ -31,7 +31,7 @@ test('Should FILTER by START DATE', ()=>{
 		{
 			text: undefined,
 			sortBy: undefined,
-			startDate: moment(),
+			startDate: moment(1511215827),
 			endDate: undefined
 		}
 	);
@@ -51,7 +51,7 @@ test('Should FILTER by END DATE', ()=>{
 			text: undefined,
 			sortBy: undefined,
 			startDate: undefined,
-			endDate: moment()
+			endDate: moment(1511215827)
 		}
 	);
 	expect(result).toEqual([
@@ -68,8 +68,8 @@ test('Should FILTER by DATE', ()=>{
 		{
 			text: undefined,
 			sortBy: undefined,
-			startDate: moment().startOf('day'),
-			endDate: moment().endOf('day')
+			startDate: moment(1511215827).startOf('day'),
+			endDate: moment(1511215827).endOf('day')
 		}
 	);
 	expect(result).toEqual([

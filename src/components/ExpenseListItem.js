@@ -44,4 +44,5 @@ const ExpenseListItem = ({dispatch, id, description, notes, amount, createdAt}) 
 	</div>
 );
 
-export default connect()(ExpenseListItem);
+//export default connect()(ExpenseListItem);
+export default ExpenseListItem;

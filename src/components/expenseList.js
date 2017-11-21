@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
-const ExpenseList = (props) => (
+export const ExpenseList = (props) => (
 	<div className="container">
 		<h3 className="title is-3">
 			List
@@ -17,9 +17,15 @@ const ExpenseList = (props) => (
 			</span>
 		</h3>
 		{
-			props.expenses.map(
-				(expense) => (
-					<ExpenseListItem key={expense.id} {...expense} />
+			props.expenses.length === 0 ? (
+				<div className="notification is-warning">
+					nothing right now
+				</div>
+			) : (
+				props.expenses.map(
+					(expense) => (
+						<ExpenseListItem key={expense.id} {...expense} />
+					)
 				)
 			)
 		}
