@@ -12,8 +12,8 @@ module.exports = {
 		}
 	},
 	"rules":{
-		"no-console": 1,
-		"react/prop-types": 1,
+		"no-console": 0,
+		"react/prop-types": 0,
 		"react/display-name": 1,
 		"no-constant-condition": 1,
 		"no-unused-vars": 1
