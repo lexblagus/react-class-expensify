@@ -211,7 +211,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(0){ // set 3 text filters
+	if(1){ // set 3 text filters
 		setTimeout(
 			() => {
 				console.log('setTextFilter');
