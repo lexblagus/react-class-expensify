@@ -15,7 +15,7 @@
     "build:prod": "webpack -p --env production",
     "serve": "live-server public/",
     "start": "node server/server.js",
-    "heroku-postbuild": "npm run build:dev"
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "autoprefixer-core": "^6.0.1",
