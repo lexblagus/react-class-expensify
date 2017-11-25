@@ -13,7 +13,9 @@
     "dev-server": "webpack-dev-server",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "serve": "live-server public/"
+    "serve": "live-server public/",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:dev"
   },
   "dependencies": {
     "autoprefixer-core": "^6.0.1",
@@ -23,7 +25,6 @@
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1",
     "blueprint-css": "^2.4.2",
     "bulma": "^0.6.1",
     "console": "^0.5.2",
@@ -36,6 +37,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jest": "^21.3.2",
     "eslint-plugin-jsx-a11y": "^6.0.2",
+    "express": "^4.16.2",
     "live-server": "^1.2.0",
     "milligram": "^1.3.0",
     "moment": "^2.18.1",
@@ -57,13 +59,12 @@
     "uuid": "^3.1.0",
     "validator": "8.0.0",
     "webpack": "3.1.0",
-    "webpack-dev-server": "2.5.1"
-  },
-  "devDependencies": {
+    "webpack-dev-server": "2.5.1",
     "babel-eslint": "^8.0.1",
+    "babel-preset-react": "6.24.1",
     "eslint": "^4.10.0",
     "eslint-plugin-react": "^7.4.0",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "3.0.0",
     "jest": "^21.2.1"
   }
 }
