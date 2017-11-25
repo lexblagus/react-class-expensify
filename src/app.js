@@ -167,7 +167,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(0){ // edit 4
+	if(1){ // edit 4
 		setTimeout(
 			() => {
 				console.log('editExpense');
@@ -186,7 +186,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(0){ // remove items
+	if(1){ // remove items
 		setTimeout(
 			() => {
 				console.log('removeExpense');

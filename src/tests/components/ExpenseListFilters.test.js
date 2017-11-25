@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import { ExpenseListFilters }  from '../../components/expenseListFilters';
 import { filters_0, filters_1 } from '../fixtures/dummyFilters';
 
-let wrapper, setTextFilter, sortByDate, sortByAmount, sortByStartDate, sortByEndDate;
+let wrapper, setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate;
 
 beforeEach(()=>{
 	setTextFilter = jest.fn();
 	sortByDate = jest.fn();
 	sortByAmount = jest.fn();
-	sortByStartDate = jest.fn();
-	sortByEndDate = jest.fn();
+	setStartDate = jest.fn();
+	setEndDate = jest.fn();
 	
 	wrapper = shallow(
 		<ExpenseListFilters
@@ -18,8 +18,8 @@ beforeEach(()=>{
 			setTextFilter={setTextFilter}
 			sortByDate={sortByDate}
 			sortByAmount={sortByAmount}
-			sortByStartDate={sortByStartDate}
-			sortByEndDate={sortByEndDate}
+			setStartDate={setStartDate}
+			setEndDate={setEndDate}
 		/>
 	);
 });
@@ -35,19 +35,57 @@ test('render ExpenseListFilters with data 1', ()=>{
 	expect(wrapper).toMatchSnapshot();
 }); 
 
-// handle text change
-
 test('should handle text change', ()=>{
 	wrapper
-		.find('input[data-test-id="list-filters-criteria"]')
+		.find('[data-test-id="list-filters-criteria"]')
 		.prop('onChange')( {target: { value: filters_1.text } } )
 	;
-	expect(setTextFilter).toHaveBeenCalledWith(filters_1.text);
+	expect(setTextFilter).toHaveBeenLastCalledWith(filters_1.text);
 }); 
 
 
-// test('should sort by date', ()=>{}); 
-// test('should sort by amount', ()=>{}); 
-// test('should should handle date changes', ()=>{}); 
-// test('should should handle date focus changes', ()=>{}); 
+test('should sort by date', ()=>{
+	wrapper
+		.find('[data-test-id="list-filters-sort"]')
+		.prop('onChange')( {target: { value: filters_0.sortBy } } )
+	;
+	expect(sortByDate).toHaveBeenCalled();
+}); 
+
+test('should sort by amount', ()=>{
+	wrapper
+		.find('[data-test-id="list-filters-sort"]')
+		.prop('onChange')( {target: { value: filters_1.sortBy } } )
+	;
+	expect(sortByAmount).toHaveBeenCalled();
+});
+
+test('should handle start date', ()=>{
+	wrapper
+		.find('DateRangePicker')
+		.prop('onDatesChange')({
+			startDate: filters_1.startDate,
+			endDate: filters_1.endDate
+		})
+	;
+	expect(setStartDate).toHaveBeenCalledWith(filters_1.startDate);
+	expect(setEndDate).toHaveBeenCalledWith(filters_1.endDate);
+});
+
+test('should handle date focus changes', ()=>{
+	wrapper
+		.find('DateRangePicker')
+		.prop('onFocusChange')('startDate')
+	;
+	expect(wrapper.state('calendarFocused')).toBe('startDate');
+}); 
+
+
+test('should handle date focus changes', ()=>{
+	wrapper
+		.find('DateRangePicker')
+		.prop('onFocusChange')('endDate')
+	;
+	expect(wrapper.state('calendarFocused')).toBe('endDate');
+}); 
 

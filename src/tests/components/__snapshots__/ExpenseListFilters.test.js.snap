@@ -10,6 +10,7 @@ exports[`render ExpenseListFilters with data 0 1`] = `
     value=""
   />
   <select
+    data-test-id="list-filters-sort"
     onChange={[Function]}
     value="date"
   >
@@ -122,6 +123,7 @@ exports[`render ExpenseListFilters with data 1 1`] = `
     value="Desc"
   />
   <select
+    data-test-id="list-filters-sort"
     onChange={[Function]}
     value="amount"
   >

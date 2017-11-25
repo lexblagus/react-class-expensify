@@ -16,7 +16,7 @@ export class ExpenseListFilters extends React.Component{
 			() => ({calendarFocused})
 		);
 	};
-	onTextChange = (evt) => {
+	onSortChange = (evt) => {
 		if(evt.target.value === 'date'){
 			this.props.sortByDate();
 		} else if(evt.target.value === 'amount'){
@@ -38,8 +38,9 @@ export class ExpenseListFilters extends React.Component{
 					
 				/>
 				<select
+					data-test-id="list-filters-sort"
 					value={this.props.filters.sortBy}
-					onChange={this.onTextChange}
+					onChange={this.onSortChange}
 				>
 					<option value="amount">Amount</option>
 					<option value="date">Date</option>
