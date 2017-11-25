@@ -30,6 +30,8 @@ test('should handle editExpense', ()=>{
 });
 
 test('should handle removeExpense', ()=>{
-	wrapper.find('button').prop('onClick')( storeDummyData[4].id );
+	wrapper
+		.find('[data-test-id="edit-expense-remove"]')
+		.prop('onClick')( storeDummyData[4].id );
 	expect( history.push ).toHaveBeenCalledWith('/');
 });

@@ -31,6 +31,7 @@ export class ExpenseListFilters extends React.Component{
 			<div>
 				<br />
 				<input
+					data-test-id="list-filters-criteria"
 					type="text"
 					value={this.props.filters.text}
 					onChange={this.onFilterChange}

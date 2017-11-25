@@ -39,6 +39,7 @@ export class EditExpensePage extends React.Component{
 											onSubmit={this.onSubmit}
 										/>
 										<button
+											data-test-id="edit-expense-remove"
 											className="button is-small is-danger"
 											onClick = {this.onClick}
 										>Delete</button>

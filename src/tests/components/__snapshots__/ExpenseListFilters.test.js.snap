@@ -4,6 +4,7 @@ exports[`render ExpenseListFilters with data 0 1`] = `
 <div>
   <br />
   <input
+    data-test-id="list-filters-criteria"
     onChange={[Function]}
     type="text"
     value=""
@@ -115,6 +116,7 @@ exports[`render ExpenseListFilters with data 1 1`] = `
 <div>
   <br />
   <input
+    data-test-id="list-filters-criteria"
     onChange={[Function]}
     type="text"
     value="Desc"

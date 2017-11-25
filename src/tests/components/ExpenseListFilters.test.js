@@ -29,9 +29,25 @@ test('render ExpenseListFilters with data 0', ()=>{
 });
 
 test('render ExpenseListFilters with data 1', ()=>{
-	
 	wrapper.setProps({
 		filters: filters_1
 	});
 	expect(wrapper).toMatchSnapshot();
 }); 
+
+// handle text change
+
+test('should handle text change', ()=>{
+	wrapper
+		.find('input[data-test-id="list-filters-criteria"]')
+		.prop('onChange')( {target: { value: filters_1.text } } )
+	;
+	expect(setTextFilter).toHaveBeenCalledWith(filters_1.text);
+}); 
+
+
+// test('should sort by date', ()=>{}); 
+// test('should sort by amount', ()=>{}); 
+// test('should should handle date changes', ()=>{}); 
+// test('should should handle date focus changes', ()=>{}); 
+
