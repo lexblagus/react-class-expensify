@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ExpenseDashboardPage 1`] = `
+<div>
+  <section
+    className="section"
+  >
+    <div
+      className="container"
+    >
+      <h2
+        className="title is-2"
+      >
+        View
+      </h2>
+      <div
+        className="card"
+      >
+        <div
+          className="card-content"
+        >
+          <Connect(ExpenseListFilters) />
+          <Connect(ExpenseList) />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
