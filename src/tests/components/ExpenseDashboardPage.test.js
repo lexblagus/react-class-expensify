@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ExpenseDashboardPage  from '../../components/ExpenseDashboardPage';
-import storeDummyData from '../fixtures/storeDummyData';
+import dummyStore01 from '../fixtures/dummyStore01';
 
 
 test('Should render ExpenseDashboardPage', ()=>{
-	//console.log( {...storeDummyData[0]} );
+	//console.log( {...dummyStore01[0]} );
 	
 	const wrapper = shallow(
 		<ExpenseDashboardPage />

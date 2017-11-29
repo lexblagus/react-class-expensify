@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ExpenseList }  from '../../components/expenseList';
-import storeDummyData from '../fixtures/storeDummyData';
+import dummyStore01 from '../fixtures/dummyStore01';
 
 
 test('Should render ExpenseList with expenses', ()=>{
 	const wrapper = shallow(
-		<ExpenseList expenses={storeDummyData} />
+		<ExpenseList expenses={dummyStore01} />
 	);
 	
 	expect(wrapper).toMatchSnapshot();

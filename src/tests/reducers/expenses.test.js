@@ -1,5 +1,5 @@
 import expensesReducer from '../../reducers/expenses';
-import dummyData from '../fixtures/storeDummyData';
+import dummyData from '../fixtures/dummyStore01';
 import moment from 'moment';
 
 test(

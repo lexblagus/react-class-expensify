@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { AddExpensePage } from '../../components/AddExpensePage';
-import storeDummyData from '../fixtures/storeDummyData.js';
+import dummyStore01 from '../fixtures/dummyStore01.js';
 
 let addExpense, history, wrapper;
 
@@ -21,7 +21,7 @@ test('should render AddExpensePage correctly', ()=>{
 });
 
 test('should handle onSubmit', ()=>{
-	wrapper.find('ExpenseForm').prop('onSubmit')( storeDummyData[4] );
+	wrapper.find('ExpenseForm').prop('onSubmit')( dummyStore01[4] );
 	expect( history.push ).toHaveBeenCalledWith('/');
-	expect(addExpense).toHaveBeenCalledWith( storeDummyData[4] );
+	expect(addExpense).toHaveBeenCalledWith( dummyStore01[4] );
 });

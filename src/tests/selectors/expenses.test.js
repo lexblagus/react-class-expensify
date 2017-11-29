@@ -1,6 +1,6 @@
 import selectExpenses from '../../selectors/Expenses';
 import moment from 'moment';
-import testData from '../fixtures/storeDummyData.js';
+import testData from '../fixtures/dummyStore01.js';
 
 const dummyFilter = {
 	text: 'desc',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { EditExpensePage } from '../../components/EditExpensePage';
-import storeDummyData from '../fixtures/storeDummyData.js';
+import dummyStore01 from '../fixtures/dummyStore01.js';
 
 let editExpense, removeExpense, history, wrapper;
 
@@ -14,7 +14,7 @@ beforeEach(() => {
 			editExpense={editExpense}
 			removeExpense={removeExpense}
 			history={history}
-			expense={storeDummyData[4]}
+			expense={dummyStore01[4]}
 		/>
 	);
 });
@@ -24,14 +24,14 @@ test('should render EditExpensePage correctly', ()=>{
 });
 
 test('should handle editExpense', ()=>{
-	wrapper.find('ExpenseForm').prop('onSubmit')( storeDummyData[4] );
+	wrapper.find('ExpenseForm').prop('onSubmit')( dummyStore01[4] );
 	expect( history.push ).toHaveBeenLastCalledWith('/');
-	expect(editExpense).toHaveBeenLastCalledWith( storeDummyData[4].id, storeDummyData[4] );
+	expect(editExpense).toHaveBeenLastCalledWith( dummyStore01[4].id, dummyStore01[4] );
 });
 
 test('should handle removeExpense', ()=>{
 	wrapper
 		.find('[data-test-id="edit-expense-remove"]')
-		.prop('onClick')( storeDummyData[4].id );
+		.prop('onClick')( dummyStore01[4].id );
 	expect( history.push ).toHaveBeenCalledWith('/');
 });

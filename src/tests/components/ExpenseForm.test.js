@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 import ExpenseForm  from '../../components/ExpenseForm';
-import storeDummyData from '../fixtures/storeDummyData';
+import dummyStore01 from '../fixtures/dummyStore01';
 
 
 test('Should render empty ExpenseForm', ()=>{
 	const wrapper = shallow(
 		<ExpenseForm
-			expense={storeDummyData[3]}
+			expense={dummyStore01[3]}
 		/>
 	);
 
@@ -18,7 +18,7 @@ test('Should render empty ExpenseForm', ()=>{
 test('Should render ExpenseForm with data', ()=>{
 	const wrapper = shallow(
 		<ExpenseForm
-			expense={storeDummyData[3]}
+			expense={dummyStore01[3]}
 		/>
 	);
 
@@ -81,7 +81,7 @@ test('Call onSubmit for valid form', ()=>{
 	//expect(onSubmitSpy).toHaveBeenCalledWith('');
 	const wrapper = shallow(
 		<ExpenseForm
-			expense={storeDummyData[5]}
+			expense={dummyStore01[5]}
 			onSubmit={onSubmitSpy}
 		/>
 	);
@@ -90,10 +90,10 @@ test('Call onSubmit for valid form', ()=>{
 	});
 	expect(wrapper.state('error')).toBe('');
 	expect(onSubmitSpy).toHaveBeenLastCalledWith({
-		amount: storeDummyData[5].amount,
-		createdAt: storeDummyData[5].createdAt,
-		description: storeDummyData[5].description,
-		notes: storeDummyData[5].notes,
+		amount: dummyStore01[5].amount,
+		createdAt: dummyStore01[5].createdAt,
+		description: dummyStore01[5].description,
+		notes: dummyStore01[5].notes,
 	})
 });
 
