@@ -4,22 +4,6 @@ exports[`Should render ExpenseList with expenses 1`] = `
 <div
   className="container"
 >
-  <h3
-    className="title is-3"
-  >
-    List
-    <span
-      className="title is-4"
-    >
-       
-      with
-       
-      8
-       
-      item
-      s
-    </span>
-  </h3>
   <ExpenseListItem
     amount={10000}
     createdAt={1252015000}
@@ -91,21 +75,6 @@ exports[`Should render empty ExpenseList 1`] = `
 <div
   className="container"
 >
-  <h3
-    className="title is-3"
-  >
-    List
-    <span
-      className="title is-4"
-    >
-       
-      with
-       
-      0
-       
-      item
-    </span>
-  </h3>
   <div
     className="notification is-warning"
   >

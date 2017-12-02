@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment';
 import { Provider } from 'react-redux';
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -34,12 +35,22 @@ const jsx = (
 ReactDOM.render(jsx, document.getElementById('app'));
 
 
-if(1){ // timmed test actions
-	let itvl = 500; // begin
-	let tmot = 1000; // between
 
-	if(1){ // add 3 expenses
 
+
+let itvl = 500; // begin
+let tmot = 10; // between
+var run = [
+	1, // all timmed test actions
+	1, // add 3 expenses
+	1, // add 5 expenses
+	0, // edit 4
+	0, // remove item
+	1, // set 3 text filters
+];
+
+if(run[0]){ // timmed test actions
+	if(run[1]){ // add 3 expenses
 		setTimeout(
 			() => {
 				console.log('addExpense');
@@ -47,7 +58,7 @@ if(1){ // timmed test actions
 					addExpense({
 						description: '1 water bill',
 						amount: 10000,
-						createdAt: 1509544800000
+						createdAt: moment(  ).add(1, 'days').unix() * 1000
 					})
 				);
 			},
@@ -63,7 +74,7 @@ if(1){ // timmed test actions
 						description: '2 gas bill',
 						notes: 'gas gas gas gas gas',
 						amount: 109500,
-						createdAt: 1510955754363
+						createdAt: moment(  ).add(-3, 'days').unix() * 1000
 					})
 				);
 			},
@@ -78,7 +89,8 @@ if(1){ // timmed test actions
 					addExpense({
 						description: '3 rent',
 						notes: 'rent rent rent rent ',
-						createdAt: 1512050400000
+						amount: 0.01,
+						createdAt: moment(  ).add(0, 'days').unix() * 1000
 					})
 				);
 			},
@@ -86,7 +98,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(1){ // add 5 expenses
+	if(run[2]){ // add 5 expenses
 		setTimeout(
 			() => {
 				console.log('addExpense');
@@ -94,7 +106,7 @@ if(1){ // timmed test actions
 					addExpense({
 						description: 'Description A',
 						notes: 'notes notes notes 1 ',
-						createdAt: 1510955754363,
+						createdAt: moment(  ).add(2, 'days').unix() * 1000,
 						amount: 100
 					})
 				);
@@ -110,7 +122,7 @@ if(1){ // timmed test actions
 					addExpense({
 						description: 'Description B',
 						notes: 'notes notes notes 2',
-						createdAt: 1510955754363,
+						createdAt: moment(  ).add(3, 'days').unix() * 1000,
 						amount: 200
 					})
 				);
@@ -126,7 +138,7 @@ if(1){ // timmed test actions
 					addExpense({
 						description: 'Description C',
 						notes: 'notes notes notes 3',
-						createdAt: 1510955754363,
+						createdAt: moment(  ).add(0, 'days').unix() * 1000,
 						amount: 300
 					})
 				);
@@ -142,7 +154,7 @@ if(1){ // timmed test actions
 					addExpense({
 						description: 'Description D',
 						notes: 'notes notes notes 4',
-						createdAt: 1510955754363,
+						createdAt: moment(  ).add(-2, 'days').unix() * 1000,
 						amount: 400
 					})
 				);
@@ -158,7 +170,7 @@ if(1){ // timmed test actions
 					addExpense({
 						description: 'Description E',
 						notes: 'notes notes notes 5',
-						createdAt: 1510955754363,
+						createdAt: moment(  ).add(1, 'days').unix() * 1000,
 						amount: 500
 					})
 				);
@@ -167,7 +179,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(1){ // edit 4
+	if(run[3]){ // edit 4
 		setTimeout(
 			() => {
 				console.log('editExpense');
@@ -186,7 +198,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(1){ // remove items
+	if(run[4]){ // remove items
 		setTimeout(
 			() => {
 				console.log('removeExpense');
@@ -211,7 +223,7 @@ if(1){ // timmed test actions
 		);
 	}
 
-	if(1){ // set 3 text filters
+	if(run[5]){ // set 3 text filters
 		setTimeout(
 			() => {
 				console.log('setTextFilter');

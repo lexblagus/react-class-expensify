@@ -5,6 +5,7 @@ import selectExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
 	<div className="container">
+		{/*
 		<h3 className="title is-3">
 			List
 			<span className="title is-4">
@@ -16,6 +17,7 @@ export const ExpenseList = (props) => (
 				item{props.expenses.length>1?'s':''}
 			</span>
 		</h3>
+		*/}
 		{
 			props.expenses.length === 0 ? (
 				<div className="notification is-warning">

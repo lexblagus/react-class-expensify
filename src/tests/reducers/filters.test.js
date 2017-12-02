@@ -10,8 +10,12 @@ test('Expected DEFAULT FILTER values', () => {
 	expect( state ).toEqual({
 		text: '',
 		sortBy: 'date',
-		startDate: moment().startOf('month'),
-		endDate: moment().endOf('month')
+		//startDate: moment().startOf('month'),
+		//endDate: moment().endOf('month')
+
+		startDate: moment().startOf('month').add(-1, 'month'),
+		endDate: moment().endOf('month').add(1, 'month')
+
 	});
 });
 

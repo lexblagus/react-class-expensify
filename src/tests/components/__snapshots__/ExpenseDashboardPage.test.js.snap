@@ -20,6 +20,7 @@ exports[`Should render ExpenseDashboardPage 1`] = `
           className="card-content"
         >
           <Connect(ExpenseListFilters) />
+          <Connect(ExpensesSummary) />
           <Connect(ExpenseList) />
         </div>
       </div>
