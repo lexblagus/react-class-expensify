@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpensesSummary with 1 item 1`] = `
+<div>
+  <h3
+    className="title is-3"
+  >
+    List
+    <span
+      className="title is-4"
+    >
+       
+      with
+       
+      1
+       
+      item
+       
+      $ 
+      1
+    </span>
+  </h3>
+</div>
+`;
+
+exports[`should render ExpensesSummary with plural items 1`] = `
+<div>
+  <h3
+    className="title is-3"
+  >
+    List
+    <span
+      className="title is-4"
+    >
+       
+      with
+       
+      999
+       
+      item
+      s
+       
+      $ 
+      666
+    </span>
+  </h3>
+</div>
+`;
