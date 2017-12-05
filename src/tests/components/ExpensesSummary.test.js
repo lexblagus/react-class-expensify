@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactShallowRenderer from 'react-test-renderer/shallow';
 import { shallow } from 'enzyme';
-import { ExpensesSummary } from '../../components/ExpensesSummary.js';
+import ExpensesSummary from '../../components/ExpensesSummary.js';
 import dummyStore02 from '../fixtures/dummyStore02';
 import { filters_0, filters_1 } from '../fixtures/dummyFilters';
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import { Provider } from 'react-redux';
 import 'react-dates/lib/css/_datepicker.css';
-
+import './firebase/firebase';
 //import 'normalize.css';
 //import 'milligram';
 import 'bulma';
