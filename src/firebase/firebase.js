@@ -16,8 +16,8 @@ const db = firebase.database();
 console.warn('Saving data...')
 
 
-const beg = 5000;
-const nxt = beg;
+const beg = 2500;
+const nxt = 5000;
 let itv = beg;
 
 
@@ -66,6 +66,19 @@ setTimeout(()=>{
 	console.log('Remove data');
 	db.ref('a/b/c/d').remove().then(()=>{
 		console.warn('data removed');
+	}).catch((err)=>{
+		console.warn('error updating:', err);
+	});
+},itv+=nxt);
+
+setTimeout(()=>{
+	console.log('Update data');
+	db.ref('a').update({
+		'b/f': false,
+		g: [null, 2],
+		h: 'new'
+	}).then(()=>{
+		console.warn('data updated');
 	}).catch((err)=>{
 		console.warn('error updating:', err);
 	});
