@@ -9,8 +9,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./src/app.js",
     "test": "jest --config=jest.config.json --verbose",
-    "test-watch": "npm test -- --watchAll --verbose",
-    "dev-server": "webpack-dev-server",
+    "test-watch": "npm test -- --watchAll --verbose --interval=0.1",
+    "dev-server": "webpack-dev-server --watch-poll=0.1",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "start": "node server/server.js",

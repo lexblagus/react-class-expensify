@@ -38,14 +38,14 @@ ReactDOM.render(jsx, document.getElementById('app'));
 
 
 
-let itvl = 500; // begin
+let itvl = 100; // begin
 let tmot = 10; // between
 var run = [
-	1, // all timmed test actions
+	0, // all timmed test actions
 	1, // add 3 expenses
 	1, // add 5 expenses
-	0, // edit 4
-	0, // remove item
+	1, // edit 4
+	1, // remove item
 	1, // set 3 text filters
 ];
 
