@@ -3,7 +3,7 @@ import selectExpenses from '../selectors/expenses';
 import expensesTotal from '../selectors/expenses-total';
 import { connect } from 'react-redux';
 
-const ExpensesSummary = ({qtt,tot}) => (
+export const ExpensesSummary = ({qtt,tot}) => (
 	<div>
 		<h3 className="title is-3">
 			List
