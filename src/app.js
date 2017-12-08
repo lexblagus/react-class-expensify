@@ -38,10 +38,10 @@ ReactDOM.render(jsx, document.getElementById('app'));
 
 
 
-let itvl = 100; // begin
-let tmot = 10; // between
+let itvl = 100; // between
+let tmot = 10; // begin
 var run = [
-	0, // all timmed test actions
+	0, // all timmed actions
 	1, // add 3 expenses
 	1, // add 5 expenses
 	1, // edit 4
@@ -259,4 +259,4 @@ if(run[0]){ // timmed test actions
 			tmot+=itvl
 		);
 	}
-};
+}
