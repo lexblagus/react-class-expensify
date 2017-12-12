@@ -18,7 +18,7 @@ console.log('Data tests');
 
 const queue = [
 	0, // master switch
-	 
+	
 	0, // Initial data
 	0, // Update data
 	0, // Update-remove data and root subscription

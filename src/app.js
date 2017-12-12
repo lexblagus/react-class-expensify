@@ -74,7 +74,7 @@ if(1){
 				})
 			);
 		} },
-		{ enabled : true, fn: () => {
+		{ enabled : false, fn: () => {
 			console.log('startAddExpense');
 			window.expenseA = store.dispatch(
 				startAddExpense({
@@ -85,7 +85,7 @@ if(1){
 				})
 			);
 		} },
-		{ enabled : true, fn: () => {
+		{ enabled : false, fn: () => {
 			console.log('startAddExpense');
 			window.expenseB = store.dispatch(
 				startAddExpense({
@@ -96,7 +96,7 @@ if(1){
 				})
 			);
 		} },
-		{ enabled : true, fn: () => {
+		{ enabled : false, fn: () => {
 			console.log('startAddExpense');
 			window.expenseC = store.dispatch(
 				startAddExpense({
@@ -107,7 +107,7 @@ if(1){
 				})
 			);
 		} },
-		{ enabled : true, fn: () => {
+		{ enabled : false, fn: () => {
 			console.log('startAddExpense');
 			window.expenseD = store.dispatch(
 				startAddExpense({
@@ -118,7 +118,7 @@ if(1){
 				})
 			);
 		} },
-		{ enabled : true, fn: () => {
+		{ enabled : false, fn: () => {
 			console.log('startAddExpense');
 			window.expenseE = store.dispatch(
 				startAddExpense({

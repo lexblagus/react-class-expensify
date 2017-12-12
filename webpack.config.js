@@ -2,10 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
-
-	console.log('');
-	console.log('env', env);
-	console.log('');
+	console.log(`${env} environment`);
 
 	const isProd = env==='production';
 	const CSSExtract = new ExtractTextPlugin('styles.css');
@@ -65,6 +62,13 @@ module.exports = (env) => {
 			publicPath: '/dist/',
 			historyApiFallback: true,
 			//clientLogLevel: "info"
+			//watch: false,
+			watchOptions: {
+				//aggregateTimeout: 1,
+				poll: 100
+			},
+			//color: true,
+			
 		}
 	}
 };
