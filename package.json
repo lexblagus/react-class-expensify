@@ -19,6 +19,14 @@
     "heroku-postbuild": "npm run build:prod"
   },
   "nodemonConfig": {
+    "verbose": true,
+    "ignore": [
+      "scripts",
+      "node_modules",
+      ".git"
+    ],
+    "REM__watch": ["./"],
+    "ext": "js json jsx html css scss"
   },
   "dependencies": {
     "autoprefixer-core": "^6.0.1",
