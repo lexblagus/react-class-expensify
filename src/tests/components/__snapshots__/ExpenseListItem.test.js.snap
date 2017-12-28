@@ -25,7 +25,7 @@ exports[`Should render ExpenseListItem with expense 1`] = `
         <i>
           <Link
             replace={false}
-            to="/edit/2da95af6-3181-4902-a9fd-ec52eff5203c"
+            to="/edit/XXXXXXXX-3181-4902-a9fd-ec52eff5203c"
           />
         </i>
         <br />

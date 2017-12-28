@@ -1,26 +1,36 @@
 import confMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { startAddExpense, addExpense, editExpense, removeExpense } from '../../actions/expenses';
+import {
+	startAddExpense, addExpense, editExpense, removeExpense, setExpenses, startSetExpenses
+} from '../../actions/expenses';
 import dummyStore01 from '../fixtures/dummyStore01.js';
 import db from '../../firebase/firebase.js';
 
 const createMockStore = confMockStore([thunk]);
 
-/*
-test('Should add with defaults', ()=>{
-	const action = addExpense();
+
+beforeEach((done) => {
+	const dummyData01 = {};
+	dummyStore01.forEach(({
+		id, description, notes, amount, createdAt
+	}) => {
+		dummyData01[id] = { description, notes, amount, createdAt }
+	});
+	//console.log( dummyData01 );
+	db.ref('expenses').set(dummyData01).then(() => done());
+});
+
+
+test('should setup set expense action object with data', () => {
+	const action = setExpenses(dummyStore01);
+	//console.warn( 'action', action );
+	//console.warn( 'dummyStore01', dummyStore01 );
 	expect(action).toEqual({
-		type: 'ADD_EXPENSE',
-		expense: {
-			"amount": 0,
-			"createdAt": 0,
-			"description": "",
-			"notes": "",
-			id: expect.any(String)
-		}
+		type: 'SET_EXPENSES',
+		expenses: dummyStore01
 	});
 });
-*/
+
 
 test('Should add with values', ()=>{
 	const action = addExpense(
@@ -35,7 +45,7 @@ test('Should add with values', ()=>{
 
 test('Should edit expense', ()=>{
 	const idToBeEdited = 'abc123';
-	const updatesToBeEdited = {'note': 'new note'};
+	const updatesToBeEdited = {'notes': 'new note'};
 	const action = editExpense(idToBeEdited , updatesToBeEdited);
 	expect(action).toEqual(
 		{

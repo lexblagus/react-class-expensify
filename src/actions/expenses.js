@@ -42,3 +42,10 @@ export const editExpense = (
 	updates
 });
 
+export const setExpenses = (expenses) => ({
+	type: 'SET_EXPENSES',
+	expenses
+});
+
+export const startSetExpenses = 0;
+

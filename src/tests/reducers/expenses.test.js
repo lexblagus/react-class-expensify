@@ -1,5 +1,5 @@
 import expensesReducer from '../../reducers/expenses';
-import dummyData from '../fixtures/dummyStore01';
+import dummyStore01 from '../fixtures/dummyStore01';
 import moment from 'moment';
 
 test(
@@ -16,18 +16,18 @@ test(
 test('should REMOVE_EXPENSE by id', ()=>{
 	const action = {
 		type: 'REMOVE_EXPENSE',
-		id: dummyData[1].id
+		id: dummyStore01[1].id
 	};
 	
-	const state = expensesReducer(dummyData, action);
+	const state = expensesReducer(dummyStore01, action);
 	expect(state).toEqual([
-			dummyData[0],
-			dummyData[2],
-			dummyData[3],
-			dummyData[4],
-			dummyData[5],
-			dummyData[6],
-			dummyData[7],
+			dummyStore01[0],
+			dummyStore01[2],
+			dummyStore01[3],
+			dummyStore01[4],
+			dummyStore01[5],
+			dummyStore01[6],
+			dummyStore01[7],
 	])
 });
 
@@ -36,8 +36,8 @@ test('should *not* REMOVE_EXPENSE if no id', ()=>{
 		type: 'REMOVE_EXPENSE'
 	};
 	
-	const state = expensesReducer(dummyData, action);
-	expect(state).toEqual(dummyData)
+	const state = expensesReducer(dummyStore01, action);
+	expect(state).toEqual(dummyStore01)
 });
 
 // add, edit, not edit
@@ -55,9 +55,9 @@ test('should ADD_EXPENSE with data', ()=>{
 		expense: data
 	};
 	
-	const state = expensesReducer(dummyData, action);
+	const state = expensesReducer(dummyStore01, action);
 	expect(state).toEqual([
-		...dummyData,
+		...dummyStore01,
 		data
 	]);
 });
@@ -65,7 +65,7 @@ test('should ADD_EXPENSE with data', ()=>{
 
 test('should EDIT_EXPENSE with data', ()=>{
 	const data = {
-			id: dummyData[5].id,
+			id: dummyStore01[5].id,
 			description: 'EDITED Description C',
 			notes: 'EDITED notes 3',
 			amount: 550,
@@ -73,12 +73,12 @@ test('should EDIT_EXPENSE with data', ()=>{
 		};
 	const action = {
 		type: 'EDIT_EXPENSE',
-		id: dummyData[5].id,
+		id: dummyStore01[5].id,
 		updates: data
 	};
 	
-	const state = expensesReducer(dummyData, action);
-	const exp = dummyData;
+	const state = expensesReducer(dummyStore01, action);
+	const exp = dummyStore01;
 	exp[5] = data;
 	expect(state).toEqual(
 		exp
@@ -100,8 +100,21 @@ test('should *not* EDIT_EXPENSE not found', ()=>{
 		updates: data
 	};
 	
-	const state = expensesReducer(dummyData, action);
+	const state = expensesReducer(dummyStore01, action);
 	expect(state).toEqual(
-		dummyData
+		dummyStore01
 	);
 });
+
+
+
+test('should set expenses data', ()=>{
+	const action = {
+		type: 'SET_EXPENSES',
+		expenses: [dummyStore01[1]]
+	};
+	const state = expensesReducer(dummyStore01, action);
+	expect(state).toEqual([dummyStore01[1]]);
+});
+
+
