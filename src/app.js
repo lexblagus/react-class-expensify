@@ -37,9 +37,9 @@ ReactDOM.render(jsx, document.getElementById('app'));
 
 //console.log('window', window);
 
-if(1){
+if(0){
 	console.warn('Test suite');
-	const conf = {initDelay: 1, between: 1000};
+	const conf = {initDelay: 1, between: 1500};
 	const tasks = [
 		{ enabled : true, fn: () => {
 			console.log('startAddExpense');
