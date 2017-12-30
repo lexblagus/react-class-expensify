@@ -3,16 +3,16 @@ import { shallow } from 'enzyme';
 import { EditExpensePage } from '../../components/EditExpensePage';
 import dummyStore01 from '../fixtures/dummyStore01.js';
 
-let editExpense, removeExpense, history, wrapper;
+let startEditExpense, startRemoveExpense, history, wrapper;
 
 beforeEach(() => {
-	editExpense = jest.fn(); // spie
-	removeExpense = jest.fn(); // spie
+	startEditExpense = jest.fn(); // spie
+	startRemoveExpense = jest.fn(); // spie
 	history = { push: jest.fn() };
 	wrapper = shallow(
 		<EditExpensePage
-			editExpense={editExpense}
-			removeExpense={removeExpense}
+			startEditExpense={startEditExpense}
+			startRemoveExpense={startRemoveExpense}
 			history={history}
 			expense={dummyStore01[4]}
 		/>
@@ -26,10 +26,10 @@ test('should render EditExpensePage correctly', ()=>{
 test('should handle editExpense', ()=>{
 	wrapper.find('ExpenseForm').prop('onSubmit')( dummyStore01[4] );
 	expect( history.push ).toHaveBeenLastCalledWith('/');
-	expect(editExpense).toHaveBeenLastCalledWith( dummyStore01[4].id, dummyStore01[4] );
+	expect(startEditExpense).toHaveBeenLastCalledWith( dummyStore01[4].id, dummyStore01[4] );
 });
 
-test('should handle removeExpense', ()=>{
+test('should handle startRemoveExpense', ()=>{
 	wrapper
 		.find('[data-test-id="edit-expense-remove"]')
 		.prop('onClick')( dummyStore01[4].id );
