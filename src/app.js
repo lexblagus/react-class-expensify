@@ -12,7 +12,9 @@ import 'bulma';
 
 import AppRouter from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
-import {addExpense, startAddExpense, editExpense, removeExpense} from './actions/expenses';
+import {
+	startSetExpenses, startAddExpense, editExpense, removeExpense
+} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 //import storeSelector from './selectors/expenses';
 
@@ -33,7 +35,14 @@ const jsx = (
 	</Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
+
+store.dispatch(
+	startSetExpenses()
+).then(() => {
+	ReactDOM.render(jsx, document.getElementById('app'));
+})
+
 
 //console.log('window', window);
 
@@ -74,7 +83,7 @@ if(0){
 				})
 			);
 		} },
-		{ enabled : false, fn: () => {
+		{ enabled : true, fn: () => {
 			console.log('startAddExpense');
 			window.expenseA = store.dispatch(
 				startAddExpense({
@@ -85,7 +94,7 @@ if(0){
 				})
 			);
 		} },
-		{ enabled : false, fn: () => {
+		{ enabled : true, fn: () => {
 			console.log('startAddExpense');
 			window.expenseB = store.dispatch(
 				startAddExpense({
@@ -96,7 +105,7 @@ if(0){
 				})
 			);
 		} },
-		{ enabled : false, fn: () => {
+		{ enabled : true, fn: () => {
 			console.log('startAddExpense');
 			window.expenseC = store.dispatch(
 				startAddExpense({
@@ -107,7 +116,7 @@ if(0){
 				})
 			);
 		} },
-		{ enabled : false, fn: () => {
+		{ enabled : true, fn: () => {
 			console.log('startAddExpense');
 			window.expenseD = store.dispatch(
 				startAddExpense({
@@ -118,7 +127,7 @@ if(0){
 				})
 			);
 		} },
-		{ enabled : false, fn: () => {
+		{ enabled : true, fn: () => {
 			console.log('startAddExpense');
 			window.expenseE = store.dispatch(
 				startAddExpense({

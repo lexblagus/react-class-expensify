@@ -32,6 +32,20 @@ test('should setup set expense action object with data', () => {
 });
 
 
+test('should fetch data from firebase', (done)=>{
+	const store = createMockStore({});
+	store.dispatch( startSetExpenses() ).then(() => {
+		const actions = store.getActions();
+		expect( actions[0] ).toEqual({
+			type: 'SET_EXPENSES',
+			expenses: dummyStore01.sort((a,b)=>(
+				a.id > b.id
+			))
+		});
+		done();
+	})
+});
+
 test('Should add with values', ()=>{
 	const action = addExpense(
 		dummyStore01[3]
