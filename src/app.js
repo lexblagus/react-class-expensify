@@ -10,6 +10,7 @@ import 'react-dates/lib/css/_datepicker.css';
 //import 'milligram';
 import 'bulma';
 //import 'blueprint-css/dist/blueprint.min.css';
+//import 'normalize.css/normalize.css';
 
 import AppRouter, { history } from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
@@ -17,9 +18,9 @@ import {
 	startSetExpenses, startAddExpense, editExpense, removeExpense
 } from './actions/expenses';
 import {setTextFilter} from './actions/filters';
+import {login, logout} from './actions/auth';
 //import storeSelector from './selectors/expenses';
 
-import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 
@@ -54,7 +55,8 @@ ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
 	if( user ){
-		console.log('loged in');
+		console.log('loged in: ', user.id);
+		store.dispatch(login(user.id));
 		store.dispatch(
 			startSetExpenses()
 		).then(() => {
@@ -65,6 +67,7 @@ firebase.auth().onAuthStateChanged((user) => {
 		})
 	}else{
 		console.log('loged out');
+		store.dispatch(logout());
 		renderApp();
 		history.push('/');
 	}
