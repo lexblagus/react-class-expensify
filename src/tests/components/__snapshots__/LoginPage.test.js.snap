@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render LoginPage 1`] = `
+<div
+  className="hero is-primary"
+>
+  <h1
+    className="title is-1"
+  >
+    Login
+  </h1>
+  <button>
+    login
+  </button>
+</div>
+`;

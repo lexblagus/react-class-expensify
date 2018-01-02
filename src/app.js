@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
+import { firebase } from './firebase/firebase';
 import { Provider } from 'react-redux';
 import 'react-dates/lib/css/_datepicker.css';
-import './firebase/firebase';
+//import './firebase/firebase';
 //import './playground/firebase'; // <!>
 //import 'normalize.css';
 //import 'milligram';
@@ -22,29 +23,42 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 
+
+
 const store = configureStore();
 store.subscribe(() => {
 	//console.info('store.subscribe');
 	//console.log(JSON.stringify(store.getState(), null, '	'));
 });
 
-
-const jsx = (
+const jsx =
 	<Provider store={store}>
 		<AppRouter />
 	</Provider>
-);
+;
 
 ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
 
 store.dispatch(
 	startSetExpenses()
 ).then(() => {
-	ReactDOM.render(jsx, document.getElementById('app'));
+	ReactDOM.render(
+		jsx
+	,
+		document.getElementById('app')
+	);
 })
 
+firebase.auth().onAuthStateChanged((user) => {
+	if( user ){
+		console.log('loged in');
+	}else{
+		console.log('loged out');
+	}
+});
 
-//console.log('window', window);
+
+
 
 if(0){
 	console.warn('Test suite');

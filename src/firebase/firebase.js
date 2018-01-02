@@ -1,7 +1,6 @@
 import * as firebase from 'firebase';
-import moment from 'moment';
-import dummyStore01 from '../tests/fixtures/dummyStore01.js';
-// /src/firebase/firebase.js
+//import moment from 'moment';
+//import dummyStore01 from '../tests/fixtures/dummyStore01.js';
 
 firebase.initializeApp({
 	apiKey:            process.env.FIREBASE_API_KEY,
@@ -13,5 +12,6 @@ firebase.initializeApp({
 });
 
 const db = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, db as default};
+export { firebase, googleAuthProvider, db as default};

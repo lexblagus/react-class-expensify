@@ -20,6 +20,8 @@ const createMockStore = confMockStore([thunk]);
 
 
 beforeEach((done) => {
+	jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+	
 	const dummyData01 = {};
 	dummyStore01.forEach(({
 		id, description, notes, amount, createdAt
