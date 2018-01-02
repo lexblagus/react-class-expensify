@@ -31,8 +31,9 @@ export const Header = ({ startLogout }) => (
 	<div className="">
 		<nav className="navbar is-dark">
 			<div className="navbar-brand has-text-grey-light">
-				<NavLink className="navbar-item" activeClassName="is-active" to="/"         exact={true}>Todos</NavLink>
-				<NavLink className="navbar-item" activeClassName="is-active" to="/create"   >Create</NavLink>
+				<NavLink className="navbar-item" activeClassName="is-active" to="/"          exact={true}>Todos</NavLink>
+				<NavLink className="navbar-item" activeClassName="is-active" to="/create"    >Create</NavLink>
+				<NavLink className="navbar-item" activeClassName="is-active" to="/dashboard" >Dashboard</NavLink>
 				<div className="navbar-burger burger" data-target="navMainMenu">
 					<span></span>
 					<span></span>
@@ -44,7 +45,7 @@ export const Header = ({ startLogout }) => (
 					<NavLink className="navbar-item" activeClassName="is-active" to="/404"      >Not found</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/edit/___" >Edit a page</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Help</NavLink>
-					<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Logout</NavLink>
+					<NavLink className="navbar-item" activeClassName="is-active" to="/logout"     >Logout</NavLink>
 				</div>
 			</div>
 		</nav>

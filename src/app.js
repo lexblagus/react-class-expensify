@@ -11,7 +11,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import 'bulma';
 //import 'blueprint-css/dist/blueprint.min.css';
 
-import AppRouter from './routers/AppRouter.js';
+import AppRouter, { history } from './routers/AppRouter.js';
 import configureStore from './store/configureStore';
 import {
 	startSetExpenses, startAddExpense, editExpense, removeExpense
@@ -37,23 +37,36 @@ const jsx =
 	</Provider>
 ;
 
-ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
+let hasRendered = false;
 
-store.dispatch(
-	startSetExpenses()
-).then(() => {
-	ReactDOM.render(
-		jsx
-	,
-		document.getElementById('app')
-	);
-})
+const renderApp = () => {
+	if( !hasRendered ){
+		ReactDOM.render(
+			jsx
+		,
+			document.getElementById('app')
+		);
+		hasRendered = true;
+	}
+};
+
+ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
 	if( user ){
 		console.log('loged in');
+		store.dispatch(
+			startSetExpenses()
+		).then(() => {
+			renderApp();
+			if( history.location.pathname==='/' ){
+				history.push('/dashboard');
+			}
+		})
 	}else{
 		console.log('loged out');
+		renderApp();
+		history.push('/');
 	}
 });
 

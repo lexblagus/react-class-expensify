@@ -27,6 +27,14 @@ exports[`should render Header 1`] = `
       >
         Create
       </NavLink>
+      <NavLink
+        activeClassName="is-active"
+        ariaCurrent="true"
+        className="navbar-item"
+        to="/dashboard"
+      >
+        Dashboard
+      </NavLink>
       <div
         className="navbar-burger burger"
         data-target="navMainMenu"
@@ -71,7 +79,7 @@ exports[`should render Header 1`] = `
           activeClassName="is-active"
           ariaCurrent="true"
           className="navbar-item"
-          to="/help"
+          to="/logout"
         >
           Logout
         </NavLink>
