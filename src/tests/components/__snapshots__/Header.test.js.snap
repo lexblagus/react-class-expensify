@@ -75,22 +75,14 @@ exports[`should render Header 1`] = `
         >
           Help
         </NavLink>
-        <NavLink
-          activeClassName="is-active"
-          ariaCurrent="true"
-          className="navbar-item"
-          to="/logout"
+        <button
+          data-test-id="header-logout-button"
+          onClick={[Function]}
         >
           Logout
-        </NavLink>
+        </button>
       </div>
     </div>
   </nav>
-  <button
-    data-test-id="header-logout-button"
-    onClick={[Function]}
-  >
-    Logout
-  </button>
 </div>
 `;

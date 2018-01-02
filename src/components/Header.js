@@ -45,11 +45,10 @@ export const Header = ({ startLogout }) => (
 					<NavLink className="navbar-item" activeClassName="is-active" to="/404"      >Not found</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/edit/___" >Edit a page</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Help</NavLink>
-					<NavLink className="navbar-item" activeClassName="is-active" to="/logout"     >Logout</NavLink>
+					<button onClick={startLogout} data-test-id="header-logout-button">Logout</button>
 				</div>
 			</div>
 		</nav>
-		<button onClick={startLogout} data-test-id="header-logout-button">Logout</button>
 	</div>
 );
 
