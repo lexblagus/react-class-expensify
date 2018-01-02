@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
-
+import { connect } from 'react-redux';
+import { startLogout } from '../actions/auth';
 
 
 // Bulma header
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-const Header = () => (
+export const Header = ({ startLogout }) => (
 	<div className="">
 		<nav className="navbar is-dark">
 			<div className="navbar-brand has-text-grey-light">
@@ -43,10 +44,16 @@ const Header = () => (
 					<NavLink className="navbar-item" activeClassName="is-active" to="/404"      >Not found</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/edit/___" >Edit a page</NavLink>
 					<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Help</NavLink>
+					<NavLink className="navbar-item" activeClassName="is-active" to="/help"     >Logout</NavLink>
 				</div>
 			</div>
 		</nav>
+		<button onClick={startLogout} data-test-id="header-logout-button">Logout</button>
 	</div>
 );
 
-export default Header;
+const mapDispatchToProps = (dispatch) => ({
+	startLogout: () => dispatch(startLogout())
+});
+
+export default connect(undefined, mapDispatchToProps)(Header);

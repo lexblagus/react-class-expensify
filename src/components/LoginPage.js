@@ -5,7 +5,7 @@ import { startLogin } from '../actions/auth';
 export const LoginPage = ({startLogin}) => (
 	<div className="hero is-primary">
 		<h1 className="title is-1">Login</h1>
-		<button onClick={startLogin}>login</button>
+		<button onClick={startLogin} data-test-id="login-page-button">login</button>
 	</div>
 );
 
