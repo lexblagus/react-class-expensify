@@ -14,10 +14,9 @@ exports[`should render Header 1`] = `
         activeClassName="is-active"
         ariaCurrent="true"
         className="navbar-item"
-        exact={true}
         to="/"
       >
-        Todos
+        Home
       </NavLink>
       <NavLink
         activeClassName="is-active"
@@ -51,22 +50,6 @@ exports[`should render Header 1`] = `
       <div
         className="navbar-start"
       >
-        <NavLink
-          activeClassName="is-active"
-          ariaCurrent="true"
-          className="navbar-item"
-          to="/404"
-        >
-          Not found
-        </NavLink>
-        <NavLink
-          activeClassName="is-active"
-          ariaCurrent="true"
-          className="navbar-item"
-          to="/edit/___"
-        >
-          Edit a page
-        </NavLink>
         <NavLink
           activeClassName="is-active"
           ariaCurrent="true"
