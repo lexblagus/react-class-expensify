@@ -7,10 +7,10 @@ export const PublicRoute = ({
 	component: Component,
 	...restProps
 }) => (
-	<Route {...restProps} component={()=>(
+	<Route {...restProps} component={(props)=>(
 		!isAuthenticated ? (
 			<div data-context="component-wrapper">
-				<Component {...restProps} />
+				<Component {...props} />
 			</div>
 		) : (
 			<div data-context="redirect-wrapper">

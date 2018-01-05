@@ -8,11 +8,11 @@ export const PrivateRoute = ({
 	component: Component,
 	...restProps
 }) => (
-	<Route {...restProps} component={()=>(
+	<Route {...restProps} component={(props)=>(
 		isAuthenticated ? (
 			<div data-context="component-wrapper">
 				<Header/>
-				<Component {...restProps} />
+				<Component {...props} />
 			</div>
 		) : (
 			<div data-context="redirect-wrapper">
