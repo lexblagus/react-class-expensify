@@ -5,9 +5,9 @@ import createHistory from 'history/createBrowserHistory';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage.js';
-import LoginPage from '../components/LoginPage.js';
 import AddExpensePage from '../components/AddExpensePage.js';
 import EditExpensePage from '../components/EditExpensePage.js';
+import LoginPage from '../components/LoginPage.js';
 import HelpPage from '../components/HelpPage.js';
 import NotFoundPage from '../components/NotFoundPage.js';
 
